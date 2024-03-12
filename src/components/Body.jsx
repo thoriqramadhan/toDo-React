@@ -21,7 +21,7 @@ function Body() {
         isFinished : true
     }
 ]
-  const [task,setTask] = useState(taskExample)
+  const [tasks,setTasks] = useState(taskExample)
   const [bodyView , setBodyView] = useState(false)
 
   
@@ -30,9 +30,10 @@ function Body() {
         <BodyTab setBodyView={setBodyView}/>
         <div className="px-[15px] mt-[20px] flex flex-col gap-y-2">
           {
+            
             bodyView ? 
-            task.filter(task => task.isFinished).map(task => <BodyCard name={task.name} isFinished={task.isFinished} setTask={setTask}/>) : 
-            task.filter(task => !task.isFinished).map(task => <BodyCard name={task.name} isFinished={task.isFinished} setTask={setTask}/>)
+            tasks.filter(task => task.isFinished).map(task => <BodyCard name={task.name} key={task.name} isFinished={task.isFinished} setTasks={setTasks} tasks={tasks}/>) : 
+            tasks.filter(task => !task.isFinished).map(task => <BodyCard name={task.name} key={task.name} isFinished={task.isFinished} setTasks={setTasks} tasks={tasks}/>)
           }
         </div>
     </div>
