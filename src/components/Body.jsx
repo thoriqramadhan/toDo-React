@@ -23,6 +23,7 @@ function Body() {
 ]
   const [tasks,setTasks] = useState(taskExample)
   const [bodyView , setBodyView] = useState(false)
+  const [modal , setModal] = useState(false)
 
   
   return (
@@ -30,7 +31,6 @@ function Body() {
         <BodyTab setBodyView={setBodyView}/>
         <div className="px-[15px] mt-[20px] flex flex-col gap-y-2">
           {
-            
             bodyView ? 
             tasks.filter(task => task.isFinished).map(task => <BodyCard name={task.name} key={task.name} isFinished={task.isFinished} setTasks={setTasks} tasks={tasks}/>) : 
             tasks.filter(task => !task.isFinished).map(task => <BodyCard name={task.name} key={task.name} isFinished={task.isFinished} setTasks={setTasks} tasks={tasks}/>)

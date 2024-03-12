@@ -11,13 +11,22 @@ function BodyCard({name , isFinished, setTasks , tasks}) {
       return task
     })
 
-    console.log(updateTasks)
     setTasks(updateTasks)
   }
+  function deleteCard(){
+    const updateTaks = tasks.filter(task => task.name !== name)
+
+    setTasks(updateTaks)
+  }
   return (
-    <div className="w-full h-[100px] rounded-lg bg-[#404040] px-[15px] flex items-center">
+    <div className="w-full h-[100px] rounded-lg bg-[#404040] px-[15px] flex items-center justify-between">
+      <div className="">
         <input type="checkbox" className='h-[25px] w-[25px]' checked={isFinished} onChange={setChecked}/>
         <label htmlFor="" className='text-3xl ml-[12px] text-white'>{name}</label>
+      </div>
+      <div className="text-2xl font-bold text-red-400">
+        <button onClick={deleteCard}>X</button>
+      </div>
     </div>
   )
 }
