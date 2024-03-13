@@ -10,6 +10,7 @@ import ModalBody from './components/ModalBody'
 function App() {
   const [tasks,setTasks] = useState([])
   const [isOpen , setIsOpen] = useState(false)
+  console.log(tasks)
   return (
     <>
     <div className="px-[20px]">
